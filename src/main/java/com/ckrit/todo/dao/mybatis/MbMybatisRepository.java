@@ -78,6 +78,10 @@ public class MbMybatisRepository implements MbRepository{
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+		if(mb == null) {
+			mb = new Member();
+			mb.setMbNo(0);
+		}
 		return mb;
 	}
 
