@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ckrit.todo.dao.mapper.TdMapper">
+	<insert id="tdNew" parameterType="Map">
+		insert into td_todo values(seq_td_td_no.nextval, #{mbNo}, sysdate, #{tdContent}, TO_DATE(#{tdTargetdate},'yyyy-mm-dd'), 0, null, 0, null)
+	</insert>
+	<update id="tdUpdate" parameterType="Map">
+		update td_todo set td_content = #{tdContent} where td_no = #{tdNo}
+	</update>
+	<update id="changeTargetDate" parameterType="Map">
+		update td_todo set td_targetdate = TO_DATE(#{tdTargetdate},'yyyy-mm-dd') where td_no = #{tdNo}
+	</update>
+	<update id="complete" parameterType="Integer">
+		update td_todo set td_iscomplete = 1, td_completedate = sysdate where td_no = #{tdNo}
+	</update>
+	<update id="cancelComplete" parameterType="Integer">
+		update td_todo set td_iscomplete = 0, td_completedate = null where td_no = #{tdNo}
+	</update>
+	<update id="delete" parameterType="Integer">
+		update td_todo set td_isdelete = 1, td_deletedate = sysdate where td_no = #{tdNo}
+	</update>
+	<select id="getAllTdOrderDate" parameterType="Integer">
+		select * from td_todo where mb_no = #{mbNo} AND td_isdelete = 0 ORDER BY td_date
+	</select>
+	<select id="getAllTdReverseDate" parameterType="Integer">
+		select * from td_todo where mb_no = #{mbNo} AND td_isdelete = 0 ORDER BY td_date DESC
+	</select>
+	<select id="getAllTdOrderTargetdate" parameterType="Integer">
+		select * from td_todo where mb_no = #{mbNo} AND td_isdelete = 0 ORDER BY td_targetdate
+	</select>
+	<select id="getAllTdReverseTargetdate" parameterType="Integer">
+		select * from td_todo where mb_no = #{mbNo} AND td_isdelete = 0 ORDER BY td_targetdate DESC
+	</select>
+	<select id="getProgressTdOrderDate" parameterType="Integer">
+		select * from td_todo where mb_no = #{mbNo} AND td_isdelete = 0 AND td_iscomplete = 0
+	</select>
+	<select id="getProgressTdReverseDate" parameterType="Integer">
+		select * from td_todo where mb_no = #{mbNo} AND td_isdelete = 0 AND td_iscomplete = 0
+	</select>
+	<select id="getProgressTdOrderTargetdate" parameterType="Integer">
+		select * from td_todo where mb_no = #{mbNo} AND td_isdelete = 0 AND td_iscomplete = 0
+	</select>
+	<select id="getProgressTdReverseTargetdate" parameterType="Integer">
+		select * from td_todo where mb_no = #{mbNo} AND td_isdelete = 0 AND td_iscomplete = 0
+	</select>
+</mapper>
