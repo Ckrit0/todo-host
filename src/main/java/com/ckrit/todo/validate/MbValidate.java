@@ -15,7 +15,7 @@ public class MbValidate {
 
 	public boolean validateJoinMap(HashMap<String, Object> joinMap) {
 		boolean canJoin = false;
-		if(mbMapper.findId((String)joinMap.get("mbId")) + mbMapper.findEmail((String)joinMap.get("mbEmail")) == 0) {
+		if (mbMapper.findId((String) joinMap.get("mbId")) + mbMapper.findEmail((String) joinMap.get("mbEmail")) == 0) {
 			canJoin = true;
 		}
 		return canJoin;

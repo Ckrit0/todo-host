@@ -11,9 +11,9 @@ public class Member {
 	private Integer mbNo;
 	private String mbId;
 	private String mbEmail;
-	private String mbPw; 
+	private String mbPw;
 	private Date mbJoindate;
 	private Integer mbIsleave;
-	private Date mbLeavedate; 
+	private Date mbLeavedate;
 	private Integer mbAuth;
 }

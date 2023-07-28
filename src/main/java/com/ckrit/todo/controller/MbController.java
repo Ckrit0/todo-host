@@ -15,11 +15,12 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @CrossOrigin
 public class MbController {
-	
+
 	private final MbRepository mbRepository;
-	
+
 	/**
 	 * 회원 가입
+	 * 
 	 * @param reqBody
 	 * @return
 	 */
@@ -29,9 +30,10 @@ public class MbController {
 		boolean isSuccessJoin = mbRepository.join(reqBody);
 		return isSuccessJoin;
 	}
-	
+
 	/**
 	 * 비밀번호 변경
+	 * 
 	 * @param reqBody
 	 * @return
 	 */
@@ -41,9 +43,10 @@ public class MbController {
 		boolean isSuccessChangePw = mbRepository.changePw(reqBody);
 		return isSuccessChangePw;
 	}
-	
+
 	/**
 	 * 회원 탈퇴
+	 * 
 	 * @param reqBody
 	 * @return
 	 */
@@ -53,9 +56,10 @@ public class MbController {
 		boolean isSuccessLeave = mbRepository.leave(reqBody);
 		return isSuccessLeave;
 	}
-	
+
 	/**
 	 * 이메일 인증
+	 * 
 	 * @param reqBody
 	 * @return
 	 */
@@ -65,9 +69,10 @@ public class MbController {
 		boolean isSuccessAuth = mbRepository.auth(reqBody);
 		return isSuccessAuth;
 	}
-	
+
 	/**
 	 * 회원번호로 회원정보 받기
+	 * 
 	 * @param reqBody
 	 * @return
 	 */
@@ -77,9 +82,10 @@ public class MbController {
 		Member mb = mbRepository.getMbByMbNo(reqBody);
 		return mb;
 	}
-	
+
 	/**
 	 * 아이디/이메일 과 패스워드로 회원정보 받기
+	 * 
 	 * @param reqBody
 	 * @return
 	 */

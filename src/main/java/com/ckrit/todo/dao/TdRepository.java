@@ -19,11 +19,11 @@ public interface TdRepository {
 	boolean delete(String reqBody);
 
 	List<Todo> getAllTdOrderDate(String reqBody);
-	
+
 	List<Todo> getAllTdReverseDate(String reqBody);
-	
+
 	List<Todo> getAllTdOrderTargetdate(String reqBody);
-	
+
 	List<Todo> getAllTdReverseTargetdate(String reqBody);
 
 	List<Todo> getProgressTdOrderDate(String reqBody);
@@ -34,5 +34,4 @@ public interface TdRepository {
 
 	List<Todo> getProgressTdReverseTargetdate(String reqBody);
 
-	
 }

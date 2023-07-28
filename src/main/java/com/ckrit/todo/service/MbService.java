@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
-import java.sql.Date;
 
 @Service
 public class MbService {
@@ -19,7 +18,7 @@ public class MbService {
 		joinMap.put("mbId", mbId);
 		joinMap.put("mbEmail", mbEmail);
 		joinMap.put("mbPw", mbPw);
-		
+
 		return joinMap;
 	}
 
@@ -33,7 +32,6 @@ public class MbService {
 		changePwMap.put("mbPw", mbPw);
 		return changePwMap;
 	}
-
 
 	public Integer getMbNo(String reqBody) {
 		JSONObject reqObject = new JSONObject(reqBody);
@@ -53,5 +51,5 @@ public class MbService {
 		loginMap.put("mbPw", mbPw);
 		return loginMap;
 	}
-	
+
 }

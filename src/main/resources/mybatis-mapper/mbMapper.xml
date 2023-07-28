@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ckrit.todo.dao.mapper.MbMapper">
-	
+
 	<insert id="join" parameterType="Map">
-		insert into todo_member values(seq_todo_mb_no.nextval, #{mbId}, #{mbEmail}, #{mbPw}, sysdate, 0, null, 0)
+		insert into todo_member values(seq_todo_mb_no.nextval, #{mbId},
+		#{mbEmail}, #{mbPw}, sysdate, 0, null, 0)
 	</insert>
-	
+
 	<update id="changePw" parameterType="Map">
 		update todo_member set mb_pw = #{mbPw} where mb_no = #{mbNo}
 	</update>
-	
+
 	<update id="leave" parameterType="Integer">
-		update todo_member set mb_isleave = 1, mb_leavedate = sysdate where mb_no = #{mbNo}
+		update todo_member set mb_isleave = 1, mb_leavedate = sysdate where
+		mb_no = #{mbNo}
 	</update>
-	
+
 	<update id="auth" parameterType="Integer">
 		update todo_member set mb_auth = 1 where mb_no = #{mbNo}
 	</update>
-	
+
 	<select id="getMbByMbNo" parameterType="Integer" resultType="Member">
 		select * from todo_member where mb_no = #{mbNo}
 	</select>
-	
+
 	<select id="getMbByIdPw" parameterType="Map" resultType="Member">
-		select * from todo_member where (mb_id = #{mbId} OR mb_email = #{mbEmail}) AND mb_pw = #{mbPw} AND mb_isleave = 0
+		select * from todo_member where (mb_id = #{mbId} OR mb_email =
+		#{mbEmail}) AND mb_pw = #{mbPw} AND mb_isleave = 0
 	</select>
-	
+
 	<select id="findId" parameterType="String">
-		select count(mb_id) from todo_member where mb_id = #{mbId} AND mb_isleave = 0
+		select count(mb_id) from todo_member where mb_id = #{mbId} AND
+		mb_isleave = 0
 	</select>
-	
+
 	<select id="findEmail" parameterType="String">
-		select count(mb_email) from todo_member where mb_email = #{mbEmail} AND mb_isleave = 0
+		select count(mb_email) from todo_member where mb_email = #{mbEmail} AND
+		mb_isleave = 0
 	</select>
 </mapper>

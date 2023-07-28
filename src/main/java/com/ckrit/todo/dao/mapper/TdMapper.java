@@ -33,10 +33,9 @@ public interface TdMapper {
 	List<Todo> getProgressTdOrderDate(Integer mbNo);
 
 	List<Todo> getProgressTdReverseDate(Integer mbNo);
-	
+
 	List<Todo> getProgressTdOrderTargetdate(Integer mbNo);
 
 	List<Todo> getProgressTdReverseTargetdate(Integer mbNo);
 
-	
 }

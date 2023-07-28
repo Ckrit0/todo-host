@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 
 @Repository
 @RequiredArgsConstructor
-public class MbMybatisRepository implements MbRepository{
+public class MbMybatisRepository implements MbRepository {
 	private final MbService mbService;
 	private final MbMapper mbMapper;
 	private final MbValidate mbValidate;
@@ -24,10 +24,10 @@ public class MbMybatisRepository implements MbRepository{
 		boolean isSuccessJoin = false;
 		HashMap<String, Object> reqBodyJson = mbService.getJoinMapByReqBody(reqBody);
 		boolean canJoin = mbValidate.validateJoinMap(reqBodyJson);
-		if(canJoin) {
-			if(mbMapper.join(reqBodyJson) != 0) {
+		if (canJoin) {
+			if (mbMapper.join(reqBodyJson) != 0) {
 				isSuccessJoin = true;
-			}			
+			}
 		}
 		return isSuccessJoin;
 	}
@@ -36,7 +36,7 @@ public class MbMybatisRepository implements MbRepository{
 	public boolean changePw(String reqBody) {
 		boolean isSuccessChangePw = false;
 		HashMap<String, Object> reqBodyJson = mbService.getChangePwMapByReqBody(reqBody);
-		if(mbMapper.changePw(reqBodyJson) != 0) {
+		if (mbMapper.changePw(reqBodyJson) != 0) {
 			isSuccessChangePw = true;
 		}
 		return isSuccessChangePw;
@@ -46,7 +46,7 @@ public class MbMybatisRepository implements MbRepository{
 	public boolean leave(String reqBody) {
 		boolean isSuccessLeave = false;
 		Integer mbNo = mbService.getMbNo(reqBody);
-		if(mbMapper.leave(mbNo) != 0) {
+		if (mbMapper.leave(mbNo) != 0) {
 			isSuccessLeave = true;
 		}
 		return isSuccessLeave;
@@ -56,7 +56,7 @@ public class MbMybatisRepository implements MbRepository{
 	public boolean auth(String reqBody) {
 		boolean isSuccessAuth = false;
 		Integer mbNo = mbService.getMbNo(reqBody);
-		if(mbMapper.auth(mbNo) != 0) {
+		if (mbMapper.auth(mbNo) != 0) {
 			isSuccessAuth = true;
 		}
 		return isSuccessAuth;
@@ -78,7 +78,7 @@ public class MbMybatisRepository implements MbRepository{
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		if(mb == null) {
+		if (mb == null) {
 			mb = new Member();
 			mb.setMbNo(0);
 		}
@@ -86,4 +86,3 @@ public class MbMybatisRepository implements MbRepository{
 	}
 
 }
-

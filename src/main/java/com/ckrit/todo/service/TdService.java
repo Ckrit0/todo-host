@@ -7,12 +7,10 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 
-import java.sql.Date;
-
 @Service
 @RequiredArgsConstructor
 public class TdService {
-	
+
 	public HashMap<String, Object> getNewMapByReqBody(String reqBody) {
 		JSONObject reqObject = new JSONObject(reqBody);
 		Integer mbNo = reqObject.getInt("mbNo");
@@ -24,7 +22,6 @@ public class TdService {
 		tdNewMap.put("tdTargetdate", dateString);
 		return tdNewMap;
 	}
-	
 
 	public HashMap<String, Object> getUpdateMapByReqBody(String reqBody) {
 		JSONObject reqObject = new JSONObject(reqBody);
@@ -52,6 +49,4 @@ public class TdService {
 		return tdNo;
 	}
 
-	
-	
 }
