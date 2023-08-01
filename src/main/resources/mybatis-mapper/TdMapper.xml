@@ -42,18 +42,18 @@
 	</select>
 	<select id="getProgressTdOrderDate" parameterType="Integer">
 		select * from todo_todo where mb_no = #{mbNo} AND td_isdelete = 0 AND
-		td_iscomplete = 0
+		td_iscomplete = 0 ORDER BY td_date
 	</select>
 	<select id="getProgressTdReverseDate" parameterType="Integer">
 		select * from todo_todo where mb_no = #{mbNo} AND td_isdelete = 0 AND
-		td_iscomplete = 0
+		td_iscomplete = 0 ORDER BY td_date DESC
 	</select>
 	<select id="getProgressTdOrderTargetdate" parameterType="Integer">
 		select * from todo_todo where mb_no = #{mbNo} AND td_isdelete = 0 AND
-		td_iscomplete = 0
+		td_iscomplete = 0 ORDER BY td_targetdate
 	</select>
 	<select id="getProgressTdReverseTargetdate" parameterType="Integer">
 		select * from todo_todo where mb_no = #{mbNo} AND td_isdelete = 0 AND
-		td_iscomplete = 0
+		td_iscomplete = 0 ORDER BY td_targetdate DESC
 	</select>
 </mapper>
